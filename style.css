@@ -11,11 +11,15 @@
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
 }
-
 .square {
   grid-column-start: auto;
   grid-row-start: auto;
   border: 1px solid black;
   width: auto;
   height: auto;
+}
+
+#reset {
+  display: block;
+  margin: 30px auto;
 }
