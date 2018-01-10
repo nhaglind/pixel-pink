@@ -1,4 +1,5 @@
-let squareLimit = 256;
+let grid = 16;
+let squareLimit = grid * grid;
 
 function canvas() {
   for (var i = 0; i < squareLimit; i++) {
@@ -13,6 +14,9 @@ function canvas() {
 canvas();
 
 function draw() {
+  let box = document.querySelector('#box');
+  //box.style.​gridTemplateColumns = `repeat(${grid}, 1fr)`;
+  //box.style.​gridTemplateRows = `repeat(${grid}, 1fr)`;
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.addEventListener('mouseover', pink));
 
@@ -29,6 +33,8 @@ function reset() {
   while (box.firstChild) {
     box.removeChild(box.firstChild);
   }
+  grid = prompt(`Change grid. Currently ${grid} x ${grid}.`);
+  squareLimit = grid * grid;
   canvas();
 }
 

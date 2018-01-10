@@ -4,6 +4,7 @@
 
 #box {
   border: 1px solid black;
+  box-shadow: 15px 10px 25px 5px #ffb6c230;
   width: 400px;
   height: 400px;
   margin: 0 auto;
