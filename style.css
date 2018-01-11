@@ -16,11 +16,12 @@
   grid-column-start: auto;
   grid-row-start: auto;
   border: 1px solid black;
-  width: auto;
-  height: auto;
+}
+
+.buttons {
+  text-align: center;
 }
 
 #reset {
-  display: block;
   margin: 30px auto;
 }

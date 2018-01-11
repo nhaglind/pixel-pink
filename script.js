@@ -14,15 +14,26 @@ function canvas() {
 canvas();
 
 function draw() {
-  let box = document.querySelector('#box');
+  //let box = document.querySelector('#box');
   //box.style.​gridTemplateColumns = `repeat(${grid}, 1fr)`;
   //box.style.​gridTemplateRows = `repeat(${grid}, 1fr)`;
   const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.addEventListener('mouseover', pink));
+  squares.forEach(square => square.addEventListener('mouseover', pink))
+}
 
-  function pink() {
-    this.style.backgroundColor = '#FFB6C1';
-  }
+function pink() {
+  this.style.backgroundColor = '#FFB6C1';
+}
+function purple() {
+  this.style.backgroundColor = 'rgb(219, 185, 236)';
+}
+
+const purpleButton = document.querySelector('#purple');
+purpleButton.addEventListener('click', togglePurple);
+
+function togglePurple() {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach(square => square.addEventListener('mouseover', purple));
 }
 
 const resetButton = document.querySelector('#reset');
