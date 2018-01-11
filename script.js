@@ -1,5 +1,6 @@
 let grid = 16;
 let squareLimit = grid * grid;
+let randomValue = () => Math.floor(Math.random() * 255);
 
 function canvas() {
   for (var i = 0; i < squareLimit; i++) {
@@ -11,12 +12,9 @@ function canvas() {
   draw();
 }
 
-canvas();
-
 function draw() {
-  //let box = document.querySelector('#box');
-  //box.style.​gridTemplateColumns = `repeat(${grid}, 1fr)`;
-  //box.style.​gridTemplateRows = `repeat(${grid}, 1fr)`;
+  let box = document.querySelector('#box');
+  box.style["grid-template-columns"] = `repeat(${grid}, 1fr)`;
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.addEventListener('mouseover', pink))
 }
@@ -27,6 +25,9 @@ function pink() {
 function purple() {
   this.style.backgroundColor = 'rgb(219, 185, 236)';
 }
+function random() {
+  this.style.backgroundColor = `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`;
+}
 
 const purpleButton = document.querySelector('#purple');
 purpleButton.addEventListener('click', togglePurple);
@@ -34,6 +35,14 @@ purpleButton.addEventListener('click', togglePurple);
 function togglePurple() {
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => square.addEventListener('mouseover', purple));
+}
+
+const randomButton = document.querySelector('#random');
+randomButton.addEventListener('click', toggleRandom);
+
+function toggleRandom() {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach(square => square.addEventListener('mouseover', random));
 }
 
 const resetButton = document.querySelector('#reset');
@@ -44,8 +53,9 @@ function reset() {
   while (box.firstChild) {
     box.removeChild(box.firstChild);
   }
-  grid = prompt(`Change grid. Currently ${grid} x ${grid}.`);
+  grid = prompt(`Change grid dimensions. Currently ${grid}.`, 16);
   squareLimit = grid * grid;
   canvas();
 }
 
+canvas();

@@ -10,8 +10,8 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
 }
+
 .square {
   grid-column-start: auto;
   grid-row-start: auto;
